@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\borim\\source\\repos\\Fundamentals new\\Web Project\\StoreManager\\StoreManager\\StoreManager.csproj": {}
+    "C:\\Users\\borim\\source\\repos\\Fundamentals new\\Web Project\\StoreManager\\StoreManager.csproj": {}
   },
   "projects": {
-    "C:\\Users\\borim\\source\\repos\\Fundamentals new\\Web Project\\StoreManager\\StoreManager\\StoreManager.csproj": {
+    "C:\\Users\\borim\\source\\repos\\Fundamentals new\\Web Project\\StoreManager\\StoreManager.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\borim\\source\\repos\\Fundamentals new\\Web Project\\StoreManager\\StoreManager\\StoreManager.csproj",
+        "projectUniqueName": "C:\\Users\\borim\\source\\repos\\Fundamentals new\\Web Project\\StoreManager\\StoreManager.csproj",
         "projectName": "StoreManager",
-        "projectPath": "C:\\Users\\borim\\source\\repos\\Fundamentals new\\Web Project\\StoreManager\\StoreManager\\StoreManager.csproj",
+        "projectPath": "C:\\Users\\borim\\source\\repos\\Fundamentals new\\Web Project\\StoreManager\\StoreManager.csproj",
         "packagesPath": "C:\\Users\\borim\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\borim\\source\\repos\\Fundamentals new\\Web Project\\StoreManager\\StoreManager\\obj\\",
+        "outputPath": "C:\\Users\\borim\\source\\repos\\Fundamentals new\\Web Project\\StoreManager\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

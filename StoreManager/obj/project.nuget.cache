@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "J1+g/wYojgMVtLJWTfFsWLBp+YgnLz3S+4sbIOgH27pDRAoBZGCZrjBoAzjUV4ZC4xZxzPse/SxTcZyB5CQELQ==",
+  "dgSpecHash": "6WC4xV32Wacbly5wP5zRKChG/j5RRZAQzl9UAhgrr6IWgpq8Sh3toldSFabji93iPF4wuujzs/Tpo6+IcIMMDQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\borim\\source\\repos\\Fundamentals new\\Web Project\\StoreManager\\StoreManager\\StoreManager.csproj",
+  "projectFilePath": "C:\\Users\\borim\\source\\repos\\Fundamentals new\\Web Project\\StoreManager\\StoreManager.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\borim\\.nuget\\packages\\automapper\\10.1.0\\automapper.10.1.0.nupkg.sha512",
     "C:\\Users\\borim\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\8.1.0\\automapper.extensions.microsoft.dependencyinjection.8.1.0.nupkg.sha512",
