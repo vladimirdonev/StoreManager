@@ -2,7 +2,7 @@
 {
     public class CreateProductViewModel
     {
-        public string ProductIma { get; set; }
+        public string ProductImg { get; set; }
         public string Name { get; set; }
 
         public decimal Price { get; set; }

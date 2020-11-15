@@ -22,13 +22,13 @@ namespace StoreManager.Services.Products
 
         public ICollection<AllProductsViewModel> AllProducts()
         {
-            var Products = this.mapper.Map<List<AllProductsViewModel>>(this.db.Products.ToList());
+            List<AllProductsViewModel> Products = this.mapper.Map<List<Product>,List<AllProductsViewModel>>(this.db.Products.ToList());
             return Products;
         }
 
         public void CreateProduct(CreateProductViewModel createProduct)
         {
-            var Product = this.mapper.Map<Product>(createProduct);
+            var Product = this.mapper.Map<CreateProductViewModel,Product>(createProduct);
             this.db.Products.Add(Product);
             this.db.SaveChanges();
         }
@@ -37,18 +37,19 @@ namespace StoreManager.Services.Products
         {
             var Product = this.db.Products.FirstOrDefault(x => x.Id == id);
             this.db.Products.Remove(Product);
+            this.db.SaveChanges();
         }
 
         public ProductViewModel Details(int id)
         {
             var Product = this.db.Products.FirstOrDefault(x => x.Id == id);
-            return this.mapper.Map<ProductViewModel>(Product);
+            return this.mapper.Map<Product,ProductViewModel>(Product);
         }
 
         public void Edit(EditProductViewModel product)
         {
             var Product = this.db.Products.First(x => x.Id == product.Id);
-            Product = this.mapper.Map<Product>(product);
+            Product = this.mapper.Map<EditProductViewModel,Product>(product);
             this.db.Update(Product);
             this.db.SaveChanges();
         }

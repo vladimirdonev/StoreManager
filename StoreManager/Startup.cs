@@ -14,6 +14,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using StoreManager.Models;
 using AutoMapper;
+using StoreManager.Services.Products;
 
 namespace StoreManager
 {
@@ -36,6 +37,7 @@ namespace StoreManager
                 .AddRoles<IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddAutoMapper(typeof(Startup));
+            services.AddTransient<IProductsService, ProductsService>();
             services.AddControllersWithViews();
             services.AddRazorPages();
         }

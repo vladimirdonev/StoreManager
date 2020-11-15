@@ -26,7 +26,8 @@ namespace StoreManager.Controllers
             return this.Redirect("/Products/All");
         }
 
-        public IActionResult AllProducts()
+        
+        public IActionResult All()
         {
             return this.View(productsServise.AllProducts());
         }
@@ -45,6 +46,17 @@ namespace StoreManager.Controllers
             this.productsServise.Edit(product);
             return this.Redirect("/Products/All");
             
+        }
+        
+        public IActionResult Details(int id)
+        {
+            return this.View(this.productsServise.Details(id));
+        }
+
+        public IActionResult Delete(int id)
+        {
+            this.productsServise.DeleteProduct(id);
+            return this.Redirect("/Products/All");
         }
     }
 }
