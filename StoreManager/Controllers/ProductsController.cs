@@ -35,7 +35,7 @@ namespace StoreManager.Controllers
         [HttpGet]
         public IActionResult EditProduct(int id)
         {
-            var Product = this.productsServise.Details(id);
+            var Product = this.productsServise.GetById(id);
             return this.View(Product);
         }
 

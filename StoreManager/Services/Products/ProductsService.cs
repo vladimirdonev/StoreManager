@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.EntityFrameworkCore;
 using StoreManager.Data;
 using StoreManager.Models;
 using StoreManager.ViewModels.Products;
@@ -22,8 +23,14 @@ namespace StoreManager.Services.Products
 
         public ICollection<AllProductsViewModel> AllProducts()
         {
-            List<AllProductsViewModel> Products = this.mapper.Map<List<Product>,List<AllProductsViewModel>>(this.db.Products.ToList());
-            return Products;
+            var Products = this.db.Products.ToList();
+            var ProductsToView = new List<AllProductsViewModel>();
+            foreach (var product in Products)
+            {
+
+                ProductsToView.Add(this.mapper.Map<Product,AllProductsViewModel>(product));
+            }
+            return ProductsToView;
         }
 
         public void CreateProduct(CreateProductViewModel createProduct)
@@ -49,9 +56,16 @@ namespace StoreManager.Services.Products
         public void Edit(EditProductViewModel product)
         {
             var Product = this.db.Products.First(x => x.Id == product.Id);
+            this.db.Entry(Product).State = EntityState.Detached;
             Product = this.mapper.Map<EditProductViewModel,Product>(product);
             this.db.Update(Product);
             this.db.SaveChanges();
+        }
+
+        public EditProductViewModel GetById(int Id)
+        {
+            var Product = this.mapper.Map<Product,EditProductViewModel>(this.db.Products.FirstOrDefault(x => x.Id == Id));
+            return Product;
         }
     }
 }

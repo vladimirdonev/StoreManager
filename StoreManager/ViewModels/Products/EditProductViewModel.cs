@@ -2,8 +2,8 @@
 {
     public class EditProductViewModel
     {
-        public int Id { get; set; }
 
+        public int Id { get; set; }
         public string ProductImg { get; set; }
 
         public string Name { get; set; }

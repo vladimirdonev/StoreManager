@@ -10,6 +10,8 @@ namespace StoreManager.Services.Products
 
         void DeleteProduct(int id);
 
+        EditProductViewModel GetById(int Id);
+
         void Edit(EditProductViewModel product);
 
         ProductViewModel Details(int id);  

@@ -11,7 +11,11 @@ namespace StoreManager.Services.AutoMapper
         {
             CreateMap<CreateProductViewModel, Product>();
             CreateMap<Product, ProductViewModel>();
-            CreateMap<List<Product>, List<AllProductsViewModel>>();
+            CreateMap<Product, AllProductsViewModel>();
+            CreateMap<EditProductViewModel, Product>();
+                //.ForMember(x => x.Id, opt => opt.Ignore());
+            CreateMap<ProductViewModel, Product>();
+            CreateMap<Product, EditProductViewModel>();
         }
     }
 }
