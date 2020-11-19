@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using StoreManager.Models;
 using StoreManager.ViewModels.Products;
+using StoreManager.ViewModels.Suppliers;
 using System.Collections.Generic;
 
 namespace StoreManager.Services.AutoMapper
@@ -13,9 +14,13 @@ namespace StoreManager.Services.AutoMapper
             CreateMap<Product, ProductViewModel>();
             CreateMap<Product, AllProductsViewModel>();
             CreateMap<EditProductViewModel, Product>();
-                //.ForMember(x => x.Id, opt => opt.Ignore());
             CreateMap<ProductViewModel, Product>();
             CreateMap<Product, EditProductViewModel>();
+            CreateMap<Supplier, AllSuppliersViewModel>();
+            CreateMap<SupplierViewModel, Supplier>();
+            CreateMap<Supplier, SupplierViewModel>();
+            CreateMap<SupplierEditViewModel, SupplierEditViewModel>();
+            CreateMap<SupplierEditViewModel, Supplier>();
         }
     }
 }

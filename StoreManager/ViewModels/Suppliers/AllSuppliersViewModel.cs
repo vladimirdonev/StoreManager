@@ -1,9 +1,11 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using StoreManager.Models;
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
-
-namespace StoreManager.Models
+namespace StoreManager.ViewModels.Suppliers
 {
-    public class Supplier
+    public class AllSuppliersViewModel 
     {
         public int Id { get; set; }
 

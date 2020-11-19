@@ -1,12 +1,9 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-
-namespace StoreManager.Models
+namespace StoreManager.ViewModels.Suppliers
 {
-    public class Supplier
+    public class SupplierViewModel
     {
-        public int Id { get; set; }
-
         [Required]
         public string Name { get; set; }
 
