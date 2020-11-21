@@ -19,7 +19,7 @@ namespace StoreManager.Services.AutoMapper
             CreateMap<Supplier, AllSuppliersViewModel>();
             CreateMap<SupplierViewModel, Supplier>();
             CreateMap<Supplier, SupplierViewModel>();
-            CreateMap<SupplierEditViewModel, SupplierEditViewModel>();
+            CreateMap<Supplier, SupplierEditViewModel>();
             CreateMap<SupplierEditViewModel, Supplier>();
         }
     }
