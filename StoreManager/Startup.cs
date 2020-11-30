@@ -16,6 +16,7 @@ using StoreManager.Models;
 using AutoMapper;
 using StoreManager.Services.Products;
 using StoreManager.Services.Suppliers;
+using StoreManager.Services.Users;
 
 namespace StoreManager
 {
@@ -33,13 +34,14 @@ namespace StoreManager
         {
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
-                    Configuration.GetConnectionString("DefaultConnection")));
+                    Configuration.GetConnectionString("DefaultConnection")),ServiceLifetime.Transient);
             services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = false)
                 .AddRoles<IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddAutoMapper(typeof(Startup));
             services.AddTransient<IProductsService, ProductsService>();
             services.AddTransient<ISuppliersService, SuppliersService>();
+            services.AddTransient<UserManagerExtend<ApplicationUser>>();
             services.AddControllersWithViews();
             services.AddRazorPages();
         }
