@@ -17,6 +17,7 @@ using AutoMapper;
 using StoreManager.Services.Products;
 using StoreManager.Services.Suppliers;
 using StoreManager.Services.Users;
+using StoreManager.Services.Stores;
 
 namespace StoreManager
 {
@@ -42,6 +43,7 @@ namespace StoreManager
             services.AddTransient<IProductsService, ProductsService>();
             services.AddTransient<ISuppliersService, SuppliersService>();
             services.AddTransient<UserManagerExtend<ApplicationUser>>();
+            services.AddTransient<IStoresService, StoresService>();
             services.AddControllersWithViews();
             services.AddRazorPages();
         }

@@ -827,3 +827,5 @@ C:\Users\borim\source\repos\Fundamentals new\Web Project\StoreManager\obj\Debug\
 C:\Users\borim\source\repos\Fundamentals new\Web Project\StoreManager\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\_ValidationScriptsPartial.cshtml.g.cs
 C:\Users\borim\source\repos\Fundamentals new\Web Project\StoreManager\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\_ViewImports.cshtml.g.cs
 C:\Users\borim\source\repos\Fundamentals new\Web Project\StoreManager\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Index.cshtml.g.cs
+C:\Users\borim\source\repos\Fundamentals new\Web Project\StoreManager\obj\Debug\netcoreapp3.1\Razor\Views\Administration\CreateRole.cshtml.g.cs
+C:\Users\borim\source\repos\Fundamentals new\Web Project\StoreManager\obj\Debug\netcoreapp3.1\Razor\Views\Store\CreateStore.cshtml.g.cs
