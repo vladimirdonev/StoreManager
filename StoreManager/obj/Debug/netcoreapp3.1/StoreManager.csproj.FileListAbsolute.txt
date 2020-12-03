@@ -741,7 +741,6 @@ C:\Users\borim\source\repos\Fundamentals new\Web Project\StoreManager\bin\Debug\
 C:\Users\borim\source\repos\Fundamentals new\Web Project\StoreManager\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.0\System.Runtime.Caching.dll
 C:\Users\borim\source\repos\Fundamentals new\Web Project\StoreManager\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Runtime.Caching.dll
 C:\Users\borim\source\repos\Fundamentals new\Web Project\StoreManager\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
-C:\Users\borim\source\repos\Fundamentals new\Web Project\StoreManager\obj\Debug\netcoreapp3.1\StoreManager.csprojAssemblyReference.cache
 C:\Users\borim\source\repos\Fundamentals new\Web Project\StoreManager\obj\Debug\netcoreapp3.1\StoreManager.AssemblyInfoInputs.cache
 C:\Users\borim\source\repos\Fundamentals new\Web Project\StoreManager\obj\Debug\netcoreapp3.1\StoreManager.AssemblyInfo.cs
 C:\Users\borim\source\repos\Fundamentals new\Web Project\StoreManager\obj\Debug\netcoreapp3.1\StoreManager.RazorAssemblyInfo.cache
@@ -829,3 +828,7 @@ C:\Users\borim\source\repos\Fundamentals new\Web Project\StoreManager\obj\Debug\
 C:\Users\borim\source\repos\Fundamentals new\Web Project\StoreManager\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Index.cshtml.g.cs
 C:\Users\borim\source\repos\Fundamentals new\Web Project\StoreManager\obj\Debug\netcoreapp3.1\Razor\Views\Administration\CreateRole.cshtml.g.cs
 C:\Users\borim\source\repos\Fundamentals new\Web Project\StoreManager\obj\Debug\netcoreapp3.1\Razor\Views\Store\CreateStore.cshtml.g.cs
+C:\Users\borim\source\repos\Fundamentals new\Web Project\StoreManager\obj\Debug\netcoreapp3.1\Razor\Views\Administration\ListRoles.cshtml.g.cs
+C:\Users\borim\source\repos\Fundamentals new\Web Project\StoreManager\obj\Debug\netcoreapp3.1\StoreManager.csprojAssemblyReference.cache
+C:\Users\borim\source\repos\Fundamentals new\Web Project\StoreManager\obj\Debug\netcoreapp3.1\Razor\Views\Administration\EditRole.cshtml.g.cs
+C:\Users\borim\source\repos\Fundamentals new\Web Project\StoreManager\obj\Debug\netcoreapp3.1\Razor\Views\Administration\EditUsersInRole.cshtml.g.cs

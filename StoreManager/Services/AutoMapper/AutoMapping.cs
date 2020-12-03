@@ -1,8 +1,10 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Identity;
 using StoreManager.Models;
 using StoreManager.ViewModels;
 using StoreManager.ViewModels.Products;
 using StoreManager.ViewModels.Suppliers;
+using StoreManager.ViewModels.UserRoles;
 
 namespace StoreManager.Services.AutoMapper
 {
@@ -22,6 +24,11 @@ namespace StoreManager.Services.AutoMapper
             CreateMap<Supplier, SupplierEditViewModel>();
             CreateMap<SupplierEditViewModel, Supplier>();
             CreateMap<StoreInputModel, Store>();
+            CreateMap<IdentityRole, AllRolesViewModel>()
+                .ForMember(x => x.RoleId, opt => opt.MapFrom(x => x.Id))
+                .ForMember(x => x.RoleName, opt => opt.MapFrom(x => x.Name));
+            
+
         }
     }
 }
