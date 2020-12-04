@@ -23,6 +23,8 @@ namespace StoreManager.Data
 
         public DbSet<Store> Stores { get; set; }
 
+        public DbSet<UsersStore> UsersStores { get; set; }
+
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
@@ -30,6 +32,7 @@ namespace StoreManager.Data
             builder.Entity<IdentityUserLogin<string>>().HasKey(x => new { x.UserId,x.ProviderKey,x.LoginProvider});
             builder.Entity<EmployeeSalary>().Property(x => x.Salary).HasColumnType("decimal(10,2)");
             builder.Entity<EmployeeSalary>().HasKey(x => x.Id);
+            builder.Entity<UsersStore>().HasKey(x => new { x.UserId, x.StoreId });
         }
     }
 }

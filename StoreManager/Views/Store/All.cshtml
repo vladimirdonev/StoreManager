@@ -1,0 +1,47 @@
+﻿@model IEnumerable<StoreManager.ViewModels.Store.AllStoresViewModel>
+@{
+    ViewData["Title"] = "ListStores";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>All Stores</h1>
+
+@if (Model.Any())
+{
+
+    <a class="btn btn-primary mb-3" style="width:auto" asp-controller="Store" asp-action="CreateStore">
+        Create Store
+    </a>
+
+    foreach (var store in Model)
+    {
+        <div class="card mb-3">
+            <div class="card-header">
+                Store Id : @store.Id
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">@store.Name</h5>
+            </div>
+            <div class="card-footer">
+                <a class="btn btn-primary" asp-controller="Store" asp-action="EditStore" asp-route-id="@store.Id">Edit</a>
+                <a class="btn btn-danger" asp-controller="Store" asp-action="DeleteStore" asp-route-id="@store.Id">Delete</a>
+            </div>
+        </div>
+    }
+}
+else
+{
+    <div class="card">
+        <div class="card-header">
+            No stores created yet
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">
+                Use the button below to create store
+            </h5>
+            <a class="btn btn-primary" style="width:auto" asp-controller="Store" asp-action="CreateStore">
+                Create Store
+            </a>
+        </div>
+    </div>
+}

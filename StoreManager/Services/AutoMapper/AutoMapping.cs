@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Identity;
 using StoreManager.Models;
-using StoreManager.ViewModels;
+using StoreManager.ViewModels.Store;
 using StoreManager.ViewModels.Products;
 using StoreManager.ViewModels.Suppliers;
 using StoreManager.ViewModels.UserRoles;
@@ -27,6 +27,12 @@ namespace StoreManager.Services.AutoMapper
             CreateMap<IdentityRole, AllRolesViewModel>()
                 .ForMember(x => x.RoleId, opt => opt.MapFrom(x => x.Id))
                 .ForMember(x => x.RoleName, opt => opt.MapFrom(x => x.Name));
+            CreateMap<Store, AllStoresViewModel>()
+                .ForMember(x => x.Id, opt => opt.MapFrom(x => x.Id))
+                .ForMember(x => x.Name, opt => opt.MapFrom(x => x.Name));
+            CreateMap<Store, EditStoreViewModel>()
+                .ForMember(x => x.Id, opt => opt.MapFrom(x => x.Id))
+                .ForMember(x => x.Name, opt => opt.MapFrom(x => x.Name));
             
 
         }

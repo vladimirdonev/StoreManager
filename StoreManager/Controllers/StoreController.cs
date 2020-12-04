@@ -1,9 +1,11 @@
-﻿using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using StoreManager.Models;
 using StoreManager.Services.Stores;
 using StoreManager.Services.Users;
-using StoreManager.ViewModels;
+using StoreManager.ViewModels.Store;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace StoreManager.Controllers
 {
@@ -37,6 +39,52 @@ namespace StoreManager.Controllers
             this.service.Create(model, UserId);
 
             return this.Redirect("/");
+        }
+
+        [HttpGet]
+        public IActionResult All()
+        {
+            var UserId = this.userManager.GetUserId(this.User);
+
+            return this.View(this.service.GetAll(UserId).ToList());
+        }
+
+        [HttpGet]
+        public IActionResult EditStore(int id)
+        {
+            var Store = this.service.FindById(id);
+
+            return this.View(Store);
+        }
+
+        [HttpPost]
+        public IActionResult EditStore(EditStoreViewModel model)
+        {
+            var Store = this.service.FindById(model.Id);
+
+            this.service.EditStore(model);
+
+            return this.RedirectToAction("All");
+        }
+
+        [HttpGet]
+        public IActionResult EditUsersInStore(int id)
+        {
+            this.ViewBag.id = id;
+
+            var Store = this.service.FindById(id);
+
+            var UsersInCurrentStore = this.service.GetUsers(this.userManager.Users.ToList()).ToList();
+
+            return this.View(UsersInCurrentStore);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> EditUsersInStore(ICollection<UserInStoreViewModel> Users, int Id)
+        {
+            await this.service.ManageUsers(Users, Id);
+
+            return this.RedirectToAction("EditUsersInStore");
         }
     }
 }

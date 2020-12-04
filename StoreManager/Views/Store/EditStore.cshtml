@@ -1,0 +1,55 @@
+﻿@model StoreManager.ViewModels.Store.EditStoreViewModel
+
+@{
+    ViewData["Title"] = "EditStore";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Edit Store</h1>
+
+<form method="post" class="mt-3">
+    <div class="form-group row">
+        <label asp-for="Id" class="col-sm-2 col-form-label"></label>
+        <div class="col-md-10">
+            <input asp-for="Id" disabled class="form-control">
+        </div>
+    </div>
+    <div class="form-group row">
+        <label asp-for="Name" class="col-md-2 col-form-label">StoreName</label>
+        <div class="col-md-10">
+            <input asp-for="Name" class="form-control">
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div asp-validation-summary="All" class="text-danger"></div>
+
+    <div class="form-group-row">
+        <div class="col-sm-10">
+            <button type="submit" class="btn btn-primary" asp-controller="Store" asp-action="EditStore">Update</button>
+            <a asp-action="All" class="btn btn-primary">Cancel</a>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-header">
+            <h3>Employees in this store</h3>
+        </div>
+        <div class="card-body">
+            @if (Model.Users.Any())
+            {
+                foreach (var User in Model.Users)
+                {
+                    <h5 class="card-title">@User</h5>
+                }
+            }
+            else
+            {
+                <h5 class="card-title">None at the moment</h5>
+            }
+        </div>
+        <div class="card-footer">
+            <a asp-controller="Store" asp-action="EditUsersInStore" asp-route-id="@Model.Id" class="btn btn-primary" style="width:auto">Add or remove users</a>
+        </div>
+    </div>
+</form>

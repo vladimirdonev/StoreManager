@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace StoreManager.ViewModels
+namespace StoreManager.ViewModels.Store
 {
     public class StoreInputModel
     {
