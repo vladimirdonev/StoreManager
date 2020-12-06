@@ -32,7 +32,8 @@ namespace StoreManager.Services.AutoMapper
                 .ForMember(x => x.Name, opt => opt.MapFrom(x => x.Name));
             CreateMap<Store, EditStoreViewModel>()
                 .ForMember(x => x.Id, opt => opt.MapFrom(x => x.Id))
-                .ForMember(x => x.Name, opt => opt.MapFrom(x => x.Name));
+                .ForMember(x => x.Name, opt => opt.MapFrom(x => x.Name))
+                .ForMember(x => x.Users, opt => opt.Ignore());
             
 
         }

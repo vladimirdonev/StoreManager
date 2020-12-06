@@ -57,6 +57,11 @@ namespace StoreManager.Services.Stores
 
             var store = this.mapper.Map<Store, EditStoreViewModel>(Store);
 
+            foreach (var item in Store.Users)
+            {
+                store.Users.Add($"{item.User.FirstName} {item.User.LastName}");
+            }
+
             return store;
         }
 

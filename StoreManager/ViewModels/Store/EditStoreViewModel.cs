@@ -10,7 +10,7 @@ namespace StoreManager.ViewModels.Store
     {
         public EditStoreViewModel()
         {
-            this.Users = new HashSet<string>();
+            this.Users = new List<string>();
         }
 
         public int Id { get; set; }
@@ -18,6 +18,6 @@ namespace StoreManager.ViewModels.Store
         [Required]
         public string Name { get; set; }
 
-        public HashSet<string> Users { get; set; }
+        public ICollection<string> Users { get; set; }
     }
 }

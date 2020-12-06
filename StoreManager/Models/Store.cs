@@ -18,7 +18,7 @@ namespace StoreManager.Models
         [ForeignKey("AspNetUsers")]
         public string UserId { get; set; }
 
-        public ICollection<UsersStore> Users { get; set; }
+        public virtual ICollection<UsersStore> Users { get; set; }
 
     }
 }

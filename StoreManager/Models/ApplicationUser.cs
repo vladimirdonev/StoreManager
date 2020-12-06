@@ -1,4 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace StoreManager.Models
 {
@@ -9,5 +11,10 @@ namespace StoreManager.Models
         public string FirstName { get; set; }
 
         public string LastName { get; set; }
+
+        [ForeignKey("UsersStores")]
+        public int UsersStores { get; set; }
+
+        public virtual ICollection<UsersStore> UsersStore { get; set; }
     }
 }

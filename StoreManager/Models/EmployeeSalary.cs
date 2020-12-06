@@ -10,7 +10,7 @@ namespace StoreManager.Models
         [ForeignKey("AspNetUsers")]
         public string UserId { get; set; }
 
-        public ApplicationUser User { get; set; }
+        public virtual ApplicationUser User { get; set; }
 
         public decimal Salary { get; set; }
     }

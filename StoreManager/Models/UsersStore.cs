@@ -8,12 +8,17 @@ namespace StoreManager.Models
 {
     public class UsersStore
     {
+
+
+
         [ForeignKey("AspNetUsers")]
         public string UserId { get; set; }
 
-        public ApplicationUser User { get; set; }
+        public virtual ApplicationUser User { get; set; }
 
         [ForeignKey("Store")]
         public int StoreId { get; set; }
+
+        public virtual Store Store { get; set; }
     }
 }
