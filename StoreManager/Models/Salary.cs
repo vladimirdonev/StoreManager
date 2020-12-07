@@ -1,9 +1,8 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 
-
 namespace StoreManager.Models
 {
-    public class EmployeeSalary
+    public class Salary
     {
         public int Id { get; set; }
 
@@ -12,6 +11,6 @@ namespace StoreManager.Models
 
         public virtual ApplicationUser User { get; set; }
 
-        public decimal Salary { get; set; }
+        public decimal? EmployeeSalary { get; set; }
     }
 }

@@ -15,6 +15,8 @@ namespace StoreManager.Models
         [ForeignKey("UsersStores")]
         public int UsersStores { get; set; }
 
-        public virtual ICollection<UsersStore> UsersStore { get; set; }
+        public virtual UsersStore UsersStore { get; set; }
+
+        public virtual Salary EmployeeSalary { get; set; }
     }
 }

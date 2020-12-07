@@ -5,6 +5,8 @@ using StoreManager.ViewModels.Store;
 using StoreManager.ViewModels.Products;
 using StoreManager.ViewModels.Suppliers;
 using StoreManager.ViewModels.UserRoles;
+using StoreManager.ViewModels.Salaries;
+using System.Linq;
 
 namespace StoreManager.Services.AutoMapper
 {
@@ -34,6 +36,12 @@ namespace StoreManager.Services.AutoMapper
                 .ForMember(x => x.Id, opt => opt.MapFrom(x => x.Id))
                 .ForMember(x => x.Name, opt => opt.MapFrom(x => x.Name))
                 .ForMember(x => x.Users, opt => opt.Ignore());
+            CreateMap<EmployeeSalaryInputModel, Salary>()
+                .ForMember(x => x.EmployeeSalary, opt => opt.MapFrom(x => x.Salary));
+            CreateMap<Salary, EmployeeSalaryInputModel>()
+                .ForMember(x => x.Salary, opt => opt.MapFrom(x => x.EmployeeSalary))
+                .ForMember(x => x.UserId, opt => opt.MapFrom(x => x.UserId));
+                
             
 
         }

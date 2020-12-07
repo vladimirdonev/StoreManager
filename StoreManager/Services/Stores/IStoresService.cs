@@ -1,4 +1,5 @@
 ﻿using StoreManager.Models;
+using StoreManager.ViewModels.Salaries;
 using StoreManager.ViewModels.Store;
 using System;
 using System.Collections.Generic;
@@ -20,6 +21,8 @@ namespace StoreManager.Services.Stores
         public bool IsUserInStore(ApplicationUser user);
 
         public ICollection<UserInStoreViewModel> GetUsers(ICollection<ApplicationUser> user);
+
+        public ICollection<AllEmployeesViewModel> GetEmployeesÍnStore(EditStoreViewModel store);
 
         public Task<ICollection<UserInStoreViewModel>> ManageUsers(ICollection<UserInStoreViewModel> users, int Id);
     }

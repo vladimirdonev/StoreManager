@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using StoreManager.Data;
 using StoreManager.Models;
+using StoreManager.ViewModels.Salaries;
 using StoreManager.ViewModels.Store;
 using System;
 using System.Collections.Generic;
@@ -111,6 +112,27 @@ namespace StoreManager.Services.Stores
             }
 
             return AllUsers;
+        }
+
+        public ICollection<AllEmployeesViewModel> GetEmployeesÍnStore(EditStoreViewModel store)
+        {
+            var Store = this.db.Stores.Where(x => x.Id == store.Id).FirstOrDefault();
+
+            var Employees = new List<AllEmployeesViewModel>();
+
+            foreach (var item in Store.Users)
+            {
+               var Employee = new AllEmployeesViewModel
+                {
+                    FullName = $"{item.User.FirstName} {item.User.LastName}",
+                    ProfileImage = item.User.ProfileImg,
+                    UserId = item.User.Id,
+                    Salary = item.User.EmployeeSalary?.EmployeeSalary
+                };
+                Employees.Add(Employee);
+            }
+
+            return Employees;
         }
 
         public async Task<ICollection<UserInStoreViewModel>> ManageUsers(ICollection<UserInStoreViewModel> users, int Id)

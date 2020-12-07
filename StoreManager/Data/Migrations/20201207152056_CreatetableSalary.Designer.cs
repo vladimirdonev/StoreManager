@@ -10,8 +10,8 @@ using StoreManager.Data;
 namespace StoreManager.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20201202185748_SalaryTable")]
-    partial class SalaryTable
+    [Migration("20201207152056_CreatetableSalary")]
+    partial class CreatetableSalary
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -204,6 +204,9 @@ namespace StoreManager.Data.Migrations
                     b.Property<string>("ProfileImg")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("SalaryId")
+                        .HasColumnType("int");
+
                     b.Property<string>("SecurityStamp")
                         .HasColumnType("nvarchar(max)");
 
@@ -213,6 +216,9 @@ namespace StoreManager.Data.Migrations
                     b.Property<string>("UserName")
                         .HasColumnType("nvarchar(256)")
                         .HasMaxLength(256);
+
+                    b.Property<int>("UsersStores")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
@@ -225,26 +231,6 @@ namespace StoreManager.Data.Migrations
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("AspNetUsers");
-                });
-
-            modelBuilder.Entity("StoreManager.Models.EmployeeSalary", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<decimal>("Salary")
-                        .HasColumnType("decimal(10,2)");
-
-                    b.Property<string>("UserId")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("EmployeesSalary");
                 });
 
             modelBuilder.Entity("StoreManager.Models.Product", b =>
@@ -271,12 +257,37 @@ namespace StoreManager.Data.Migrations
                     b.ToTable("Products");
                 });
 
+            modelBuilder.Entity("StoreManager.Models.Salary", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<decimal>("EmployeeSalary")
+                        .HasColumnType("decimal(10,2)");
+
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId")
+                        .IsUnique()
+                        .HasFilter("[UserId] IS NOT NULL");
+
+                    b.ToTable("Salaries");
+                });
+
             modelBuilder.Entity("StoreManager.Models.Store", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("UserId")
                         .HasColumnType("nvarchar(max)");
@@ -312,6 +323,21 @@ namespace StoreManager.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Suppliers");
+                });
+
+            modelBuilder.Entity("StoreManager.Models.UsersStore", b =>
+                {
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<int>("StoreId")
+                        .HasColumnType("int");
+
+                    b.HasKey("UserId", "StoreId");
+
+                    b.HasIndex("StoreId");
+
+                    b.ToTable("UsersStores");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -365,11 +391,26 @@ namespace StoreManager.Data.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("StoreManager.Models.EmployeeSalary", b =>
+            modelBuilder.Entity("StoreManager.Models.Salary", b =>
                 {
                     b.HasOne("StoreManager.Models.ApplicationUser", "User")
-                        .WithMany()
-                        .HasForeignKey("UserId");
+                        .WithOne("EmployeeSalary")
+                        .HasForeignKey("StoreManager.Models.Salary", "UserId");
+                });
+
+            modelBuilder.Entity("StoreManager.Models.UsersStore", b =>
+                {
+                    b.HasOne("StoreManager.Models.Store", "Store")
+                        .WithMany("Users")
+                        .HasForeignKey("StoreId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("StoreManager.Models.ApplicationUser", "User")
+                        .WithMany("UsersStore")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

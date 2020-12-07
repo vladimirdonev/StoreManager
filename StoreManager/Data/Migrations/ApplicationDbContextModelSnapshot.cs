@@ -202,6 +202,9 @@ namespace StoreManager.Data.Migrations
                     b.Property<string>("ProfileImg")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("SalaryId")
+                        .HasColumnType("int");
+
                     b.Property<string>("SecurityStamp")
                         .HasColumnType("nvarchar(max)");
 
@@ -228,26 +231,6 @@ namespace StoreManager.Data.Migrations
                     b.ToTable("AspNetUsers");
                 });
 
-            modelBuilder.Entity("StoreManager.Models.EmployeeSalary", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<decimal>("Salary")
-                        .HasColumnType("decimal(10,2)");
-
-                    b.Property<string>("UserId")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("EmployeesSalary");
-                });
-
             modelBuilder.Entity("StoreManager.Models.Product", b =>
                 {
                     b.Property<int>("Id")
@@ -270,6 +253,28 @@ namespace StoreManager.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Products");
+                });
+
+            modelBuilder.Entity("StoreManager.Models.Salary", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<decimal?>("EmployeeSalary")
+                        .HasColumnType("decimal(10,2)");
+
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId")
+                        .IsUnique()
+                        .HasFilter("[UserId] IS NOT NULL");
+
+                    b.ToTable("Salaries");
                 });
 
             modelBuilder.Entity("StoreManager.Models.Store", b =>
@@ -387,11 +392,11 @@ namespace StoreManager.Data.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("StoreManager.Models.EmployeeSalary", b =>
+            modelBuilder.Entity("StoreManager.Models.Salary", b =>
                 {
                     b.HasOne("StoreManager.Models.ApplicationUser", "User")
-                        .WithMany()
-                        .HasForeignKey("UserId");
+                        .WithOne("EmployeeSalary")
+                        .HasForeignKey("StoreManager.Models.Salary", "UserId");
                 });
 
             modelBuilder.Entity("StoreManager.Models.UsersStore", b =>

@@ -1,0 +1,30 @@
+﻿@model IEnumerable<StoreManager.ViewModels.Salaries.AllEmployeesViewModel>
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Edit</h1>
+
+<div class="card-deck">
+    @foreach (var employee in Model)
+     {
+        <div class="card m-3" style="min-width: 18rem; max-width:30.5%;">
+            <div class="card-header">
+                <h3>@employee.FullName</h3>
+            </div>
+
+            <img class="card-img-top img-thumbnail" src="@employee.ProfileImage" height="200" width="200"  asp-append-version="true" />
+
+            <div class="card-footer text-center">
+                <h1>@employee.Salary</h1>
+                @if(employee.Salary == null)
+                 {
+                    <a asp-controller="Salaries" asp-action="SetSalary" asp-route-UserId="@employee.UserId" class="btn btn-primary">Set Salary</a>
+                 }
+                <a asp-controller="Salaries" asp-action="EditSalary" asp-route-UserId="@employee.UserId" class="btn btn-primary">Edit Salary</a>
+            </div>
+        </div>
+     }
+</div>
+

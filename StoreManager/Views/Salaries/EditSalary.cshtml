@@ -1,0 +1,30 @@
+﻿@model StoreManager.ViewModels.Salaries.EmployeeSalaryInputModel
+
+@{
+    ViewData["Title"] = "EditSalary";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>EditSalary</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="EditSalary">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">                
+                <input type="hidden" asp-for="UserId" class="form-control" />
+                <span asp-validation-for="UserId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Salary" class="control-label"></label>
+                <input asp-for="Salary" class="form-control" />
+                <span asp-validation-for="Salary" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+

@@ -19,11 +19,11 @@ namespace StoreManager.Data
 
         public DbSet<Supplier> Suppliers { get; set; }
 
-        public DbSet<EmployeeSalary> EmployeesSalary { get; set; }
-
         public DbSet<Store> Stores { get; set; }
 
         public DbSet<UsersStore> UsersStores { get; set; }
+
+        public DbSet<Salary> Salaries { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -37,11 +37,14 @@ namespace StoreManager.Data
             base.OnModelCreating(builder);
             builder.Entity<Product>().Property(x => x.Price).HasColumnType("decimal(10,2)");
             builder.Entity<IdentityUserLogin<string>>().HasKey(x => new { x.UserId,x.ProviderKey,x.LoginProvider});
-            builder.Entity<EmployeeSalary>().Property(x => x.Salary).HasColumnType("decimal(10,2)");
-            builder.Entity<EmployeeSalary>().HasKey(x => x.Id);
             builder.Entity<UsersStore>().HasKey(x => new { x.UserId, x.StoreId });
             builder.Entity<UsersStore>().HasOne(x => x.Store).WithMany(x => x.Users).HasForeignKey(x => x.StoreId);
-            builder.Entity<UsersStore>().HasOne(x => x.User).WithMany(x => x.UsersStore).HasForeignKey(x => x.UserId);
+            //builder.Entity<UsersStore>().HasOne(x => x.User).WithOne(x => x.UsersStore).HasForeignKey<UsersStore>(x => x.StoreId);
+            builder.Entity<Salary>().HasKey(x => x.Id);
+            builder.Entity<Salary>().Property(x => x.EmployeeSalary).HasColumnType("decimal(10,2)");
+            builder.Entity<Salary>().HasOne(x => x.User).WithOne(x => x.EmployeeSalary).HasForeignKey<Salary>(x => x.UserId);
+            //builder.Entity<ApplicationUser>().HasOne(x => x.EmployeeSalary).WithOne(x => x.User).HasForeignKey<ApplicationUser>(x => x.Id);
+            
         }
     }
 }
