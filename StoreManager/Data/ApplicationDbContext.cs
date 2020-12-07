@@ -43,7 +43,7 @@ namespace StoreManager.Data
             builder.Entity<Salary>().HasKey(x => x.Id);
             builder.Entity<Salary>().Property(x => x.EmployeeSalary).HasColumnType("decimal(10,2)");
             builder.Entity<Salary>().HasOne(x => x.User).WithOne(x => x.EmployeeSalary).HasForeignKey<Salary>(x => x.UserId);
-            //builder.Entity<ApplicationUser>().HasOne(x => x.EmployeeSalary).WithOne(x => x.User).HasForeignKey<ApplicationUser>(x => x.Id);
+            //builder.Entity<ApplicationUser>().HasOne(x => x.EmployeeSalary).WithOne(x => x.User).HasForeignKey<ApplicationUser>(x => x.SalaryId);
             
         }
     }

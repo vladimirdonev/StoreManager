@@ -34,7 +34,7 @@ namespace StoreManager.Services.Salaries
             this.db.Entry(Salary).State = EntityState.Detached;
             this.db.Update(Salary);
             this.db.SaveChanges();
-            return Salary.User.UsersStore.StoreId;
+            return this.db.Users.FirstOrDefault(x => x.Id == model.UserId).UsersStore.StoreId;
         }
 
         public EmployeeSalaryInputModel FindById(string UserId)

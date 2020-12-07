@@ -202,9 +202,6 @@ namespace StoreManager.Data.Migrations
                     b.Property<string>("ProfileImg")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("SalaryId")
-                        .HasColumnType("int");
-
                     b.Property<string>("SecurityStamp")
                         .HasColumnType("nvarchar(max)");
 
