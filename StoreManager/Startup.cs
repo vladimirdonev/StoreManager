@@ -19,6 +19,7 @@ using StoreManager.Services.Suppliers;
 using StoreManager.Services.Users;
 using StoreManager.Services.Stores;
 using StoreManager.Services.Salaries;
+using StoreManager.Services.Schudele;
 
 namespace StoreManager
 {
@@ -46,6 +47,7 @@ namespace StoreManager
             services.AddTransient<UserManagerExtend<ApplicationUser>>();
             services.AddTransient<IStoresService, StoresService>();
             services.AddTransient<ISalariesService, SalariesService>();
+            services.AddTransient<IScheduleService, ScheduleService>();
             services.AddControllersWithViews();
             services.AddRazorPages();
         }

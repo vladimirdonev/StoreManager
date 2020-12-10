@@ -25,6 +25,8 @@ namespace StoreManager.Data
 
         public DbSet<Salary> Salaries { get; set; }
 
+        public DbSet<EmployeeSchedule> EmployeesSchedules { get; set; }
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             base.OnConfiguring(optionsBuilder);
@@ -43,7 +45,7 @@ namespace StoreManager.Data
             builder.Entity<Salary>().HasKey(x => x.Id);
             builder.Entity<Salary>().Property(x => x.EmployeeSalary).HasColumnType("decimal(10,2)");
             builder.Entity<Salary>().HasOne(x => x.User).WithOne(x => x.EmployeeSalary).HasForeignKey<Salary>(x => x.UserId);
-            //builder.Entity<ApplicationUser>().HasOne(x => x.EmployeeSalary).WithOne(x => x.User).HasForeignKey<ApplicationUser>(x => x.SalaryId);
+            //builder.Entity<EmployeeSchedule>().HasOne(x => x.User).WithOne(x => x.EmployeeSchedule).HasForeignKey<EmployeeSchedule>(x => x.UserId);
             
         }
     }

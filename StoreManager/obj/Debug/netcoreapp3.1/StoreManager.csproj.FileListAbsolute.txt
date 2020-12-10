@@ -834,9 +834,11 @@ C:\Users\borim\source\repos\Fundamentals new\Web Project\StoreManager\obj\Debug\
 C:\Users\borim\source\repos\Fundamentals new\Web Project\StoreManager\obj\Debug\netcoreapp3.1\Razor\Views\Store\EditUsersInStore.cshtml.g.cs
 C:\Users\borim\source\repos\Fundamentals new\Web Project\StoreManager\bin\Debug\netcoreapp3.1\Castle.Core.dll
 C:\Users\borim\source\repos\Fundamentals new\Web Project\StoreManager\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Proxies.dll
-C:\Users\borim\source\repos\Fundamentals new\Web Project\StoreManager\obj\Debug\netcoreapp3.1\StoreManager.csproj.CoreCompileInputs.cache
-C:\Users\borim\source\repos\Fundamentals new\Web Project\StoreManager\obj\Debug\netcoreapp3.1\StoreManager.MvcApplicationPartsAssemblyInfo.cs
-C:\Users\borim\source\repos\Fundamentals new\Web Project\StoreManager\obj\Debug\netcoreapp3.1\StoreManager.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\borim\source\repos\Fundamentals new\Web Project\StoreManager\obj\Debug\netcoreapp3.1\Razor\Views\Salaries\Edit.cshtml.g.cs
 C:\Users\borim\source\repos\Fundamentals new\Web Project\StoreManager\obj\Debug\netcoreapp3.1\Razor\Views\Salaries\SetSalary.cshtml.g.cs
 C:\Users\borim\source\repos\Fundamentals new\Web Project\StoreManager\obj\Debug\netcoreapp3.1\Razor\Views\Salaries\EditSalary.cshtml.g.cs
+C:\Users\borim\source\repos\Fundamentals new\Web Project\StoreManager\obj\Debug\netcoreapp3.1\StoreManager.csproj.CoreCompileInputs.cache
+C:\Users\borim\source\repos\Fundamentals new\Web Project\StoreManager\obj\Debug\netcoreapp3.1\StoreManager.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\borim\source\repos\Fundamentals new\Web Project\StoreManager\obj\Debug\netcoreapp3.1\StoreManager.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\borim\source\repos\Fundamentals new\Web Project\StoreManager\obj\Debug\netcoreapp3.1\Razor\Views\Schedules\Schedule.cshtml.g.cs
+C:\Users\borim\source\repos\Fundamentals new\Web Project\StoreManager\obj\Debug\netcoreapp3.1\Razor\Views\Schedules\CreateSchedule.cshtml.g.cs

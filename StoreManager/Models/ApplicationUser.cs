@@ -18,5 +18,7 @@ namespace StoreManager.Models
         public virtual UsersStore UsersStore { get; set; }
 
         public virtual Salary EmployeeSalary { get; set; }
+
+        public virtual EmployeeSchedule EmployeeSchedule { get; set; }
     }
 }

@@ -1,0 +1,67 @@
+﻿@model IEnumerable<StoreManager.ViewModels.Schudele.EmployeesSchedulesViewModel>
+
+@{
+    ViewData["Title"] = "Schedule";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var getDate = DateTime.Now;
+    var firstDayOfTheMonth = new DateTime(getDate.Year, getDate.Month, 1);
+    DateTime startDate = firstDayOfTheMonth.AddDays(-(int)firstDayOfTheMonth.DayOfWeek);
+    var StoreId = ViewBag.StoreId;
+}
+
+<h1 class="text-center">Employees Schedule</h1>
+
+<table class="table" border="1">
+    <thead>
+        <tr>
+            <th>Sunday</th>
+            <th>Monday</th>
+            <th>Tuesday</th>
+            <th>Wednesday</th>
+            <th>Thursday</th>
+            <th>Friday</th>
+            <th>Saturday</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            @for (int i = 0; i < 42; i++)
+            {
+                DateTime date = startDate.AddDays(i);
+                if (i % 7 == 0 && i > 0)
+                {
+                @:</tr><tr>
+                    // start a new row every 7 days
+                }
+                foreach (var item in Model)
+                {
+                            if (date >= DateTime.Today)
+                            {
+                                if (date <= item.EndDate)
+                                {
+                                    <td>@date.Day
+                                        <div>
+                                            @item.EmployeeFullName
+                                        </div>
+                                        <a class="btn btn-primary">Edit Schudele</a>
+                                    </td>
+                                    break;
+                                }
+                                else
+                                {
+                                    <td>@date.Day <a class="btn btn-primary" asp-action="CreateSchedule" asp-route-id="@StoreId">Create Shedule</a></td>
+                                    break;
+                                }
+
+                            }
+                            else
+                            {
+                                <td>@date.Day</td>
+                                break;
+                            }
+                }
+
+            }
+        </tr>
+    </tbody>
+</table>
