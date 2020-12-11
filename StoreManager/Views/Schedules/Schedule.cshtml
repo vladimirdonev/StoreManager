@@ -7,6 +7,7 @@
     var firstDayOfTheMonth = new DateTime(getDate.Year, getDate.Month, 1);
     DateTime startDate = firstDayOfTheMonth.AddDays(-(int)firstDayOfTheMonth.DayOfWeek);
     var StoreId = ViewBag.StoreId;
+    var nextemployee = new StoreManager.ViewModels.Schudele.EmployeesSchedulesViewModel();
 }
 
 <h1 class="text-center">Employees Schedule</h1>
@@ -26,42 +27,69 @@
     <tbody>
         <tr>
             @for (int i = 0; i < 42; i++)
-            {
+             {
                 DateTime date = startDate.AddDays(i);
                 if (i % 7 == 0 && i > 0)
                 {
                 @:</tr><tr>
                     // start a new row every 7 days
                 }
-                foreach (var item in Model)
-                {
+                
                             if (date >= DateTime.Today)
                             {
-                                if (date <= item.EndDate)
+                               @foreach (var item in Model)
                                 {
-                                    <td>@date.Day
-                                        <div>
-                                            @item.EmployeeFullName
-                                        </div>
-                                        <a class="btn btn-primary">Edit Schudele</a>
-                                    </td>
-                                    break;
+
+                                   if (date <= item.EndDate)
+                                   {
+                                        <td>@date.Day
+                                                <div>
+                                                    @item.EmployeeFullName
+                                                </div>
+                                                <a class="btn btn-primary" asp-action="Edit" asp-route-id="@item.Id" asp-route-StoreId="@StoreId">Edit Schudele</a>
+                                        
+                                        </td>
+                                       break;
+                                   }
+                                   else
+                                   {
+                                       nextemployee = Model.Where(x => x.EndDate == date).FirstOrDefault();
+
+                                           if (nextemployee != null && date >= nextemployee.EndDate && date <= nextemployee.EndDate)
+                                           {
+                                                <td>@date.Day
+                                                        <div>
+                                                            @nextemployee.EmployeeFullName
+                                                        </div>
+                                                        <a class="btn btn-primary" asp-action="Edit" asp-route-id="@nextemployee.Id" asp-route-StoreId="@StoreId">Edit Schudele</a>
+                                        
+                                                </td>
+                                           break;
+                                           }
+                                           else
+                                           {
+
+                                               <td>@date.Day <a class="btn btn-primary" asp-action="CreateSchedule" asp-route-id="@StoreId">Create Shedule</a></td>
+                                               break;
+                                           }
+                                   }
                                 }
-                                else
-                                {
-                                    <td>@date.Day <a class="btn btn-primary" asp-action="CreateSchedule" asp-route-id="@StoreId">Create Shedule</a></td>
-                                    break;
-                                }
+                                   if(!Model.Any())
+                                   {
+                                        <td>@date.Day <a class="btn btn-primary" asp-action="CreateSchedule" asp-route-id="@StoreId">Create Shedule</a></td>
+                                    
+                                   }
+                                
 
                             }
                             else
                             {
                                 <td>@date.Day</td>
-                                break;
+                                
                             }
-                }
+                
 
-            }
+             }
         </tr>
     </tbody>
 </table>

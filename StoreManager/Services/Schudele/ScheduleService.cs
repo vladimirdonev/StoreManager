@@ -1,4 +1,5 @@
-﻿using StoreManager.Data;
+﻿using Microsoft.EntityFrameworkCore;
+using StoreManager.Data;
 using StoreManager.Models;
 using StoreManager.Services.Stores;
 using StoreManager.ViewModels.Schudele;
@@ -63,18 +64,73 @@ namespace StoreManager.Services.Schudele
         public void CreateSchedule(CreateScheduleViewModel create, string UsersTemplate)
         {
             var User = UsersTemplate.Split(", ");
-            var userfullname = User[1].Remove(User[1].Length - 1);
-            var userid = User[0].Remove(0,1);
+            var userfullname = User[1].Remove(User[1].Length - 1,1);
+            var UserId = User[0].Remove(0,1);
             var Schedule = new EmployeeSchedule
             {
                 StartDate = create.StartDate,
                 EndDate = create.EndDate,
-                EmployeeFullName = User[1].TrimEnd(),
-                User = this.db.Users.FirstOrDefault(x => x.Id == userid),
-                UserId = User[0].TrimStart()
+                EmployeeFullName = userfullname,
+                User = this.db.Users.FirstOrDefault(x => x.Id == UserId),
+                UserId = UserId
             };
 
             this.db.EmployeesSchedules.Add(Schedule);
+            this.db.SaveChanges();
+        }
+
+        public bool ISShiftAvailable(DateTime StartShift, DateTime EndShift)
+        {
+            var Employee = this.db.EmployeesSchedules.FirstOrDefault(x => x.StartDate == StartShift || x.EndDate == EndShift);
+
+            if (Employee != null)
+            {
+                return true;
+            }
+
+            return false;
+        }
+
+        public int? IsEmployeeInShift(string Id)
+        {
+            var Employee = this.db.EmployeesSchedules.FirstOrDefault(x => x.UserId == Id);
+
+            if (Employee == null)
+            {
+                return null;
+            }
+
+            return Employee.Id;
+        }
+
+        public EditScheduleViewModel FindById(int id)
+        {
+            var EmployeeSchedule =  this.db.EmployeesSchedules.FirstOrDefault(x => x.Id == id);
+
+            EditScheduleViewModel editSchedule = new EditScheduleViewModel
+            {
+                Id = EmployeeSchedule.Id,
+                UserId = EmployeeSchedule.UserId,
+                EmployeeFullName = EmployeeSchedule.EmployeeFullName,
+                EndDate = EmployeeSchedule.EndDate,
+                StartDate = EmployeeSchedule.StartDate
+            };
+
+            return editSchedule;
+        }
+
+        public void Update(EditScheduleViewModel model)
+        {
+            var Schedule = this.db.EmployeesSchedules.FirstOrDefault(x => x.Id == model.Id);
+
+            Schedule.UserId = model.UserId;
+            Schedule.EmployeeFullName = model.EmployeeFullName;
+            Schedule.EndDate = model.EndDate;
+            Schedule.StartDate = model.StartDate;
+            Schedule.User = this.db.Users.FirstOrDefault(x => x.Id == model.UserId);
+
+            this.db.Entry(Schedule).State = EntityState.Detached;
+            this.db.Update(Schedule);
             this.db.SaveChanges();
         }
     }

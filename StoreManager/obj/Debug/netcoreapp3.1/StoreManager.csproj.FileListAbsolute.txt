@@ -826,7 +826,6 @@ C:\Users\borim\source\repos\Fundamentals new\Web Project\StoreManager\obj\Debug\
 C:\Users\borim\source\repos\Fundamentals new\Web Project\StoreManager\obj\Debug\netcoreapp3.1\Razor\Views\Administration\CreateRole.cshtml.g.cs
 C:\Users\borim\source\repos\Fundamentals new\Web Project\StoreManager\obj\Debug\netcoreapp3.1\Razor\Views\Store\CreateStore.cshtml.g.cs
 C:\Users\borim\source\repos\Fundamentals new\Web Project\StoreManager\obj\Debug\netcoreapp3.1\Razor\Views\Administration\ListRoles.cshtml.g.cs
-C:\Users\borim\source\repos\Fundamentals new\Web Project\StoreManager\obj\Debug\netcoreapp3.1\StoreManager.csprojAssemblyReference.cache
 C:\Users\borim\source\repos\Fundamentals new\Web Project\StoreManager\obj\Debug\netcoreapp3.1\Razor\Views\Administration\EditRole.cshtml.g.cs
 C:\Users\borim\source\repos\Fundamentals new\Web Project\StoreManager\obj\Debug\netcoreapp3.1\Razor\Views\Administration\EditUsersInRole.cshtml.g.cs
 C:\Users\borim\source\repos\Fundamentals new\Web Project\StoreManager\obj\Debug\netcoreapp3.1\Razor\Views\Store\All.cshtml.g.cs
@@ -842,3 +841,5 @@ C:\Users\borim\source\repos\Fundamentals new\Web Project\StoreManager\obj\Debug\
 C:\Users\borim\source\repos\Fundamentals new\Web Project\StoreManager\obj\Debug\netcoreapp3.1\StoreManager.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\borim\source\repos\Fundamentals new\Web Project\StoreManager\obj\Debug\netcoreapp3.1\Razor\Views\Schedules\Schedule.cshtml.g.cs
 C:\Users\borim\source\repos\Fundamentals new\Web Project\StoreManager\obj\Debug\netcoreapp3.1\Razor\Views\Schedules\CreateSchedule.cshtml.g.cs
+C:\Users\borim\source\repos\Fundamentals new\Web Project\StoreManager\obj\Debug\netcoreapp3.1\Razor\Views\Schedules\Edit.cshtml.g.cs
+C:\Users\borim\source\repos\Fundamentals new\Web Project\StoreManager\obj\Debug\netcoreapp3.1\StoreManager.csprojAssemblyReference.cache
