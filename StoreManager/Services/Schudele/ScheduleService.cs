@@ -31,16 +31,20 @@ namespace StoreManager.Services.Schudele
 
             foreach (var User in EmployeesInStore)
             {
-                var Employee = new EmployeesSchedulesViewModel
+                if (this.service.IsUserInStore(this.db.Users.FirstOrDefault(x => x.Id == User.UserId)))
                 {
-                    Id = User.Id,
-                    UserId = User.UserId,
-                    EmployeeFullName = $"{User.User.FirstName} {User.User.LastName}",
-                    StartDate = User.StartDate,
-                    EndDate = User.EndDate
-                };
 
-                Employees.Add(Employee);
+                    var Employee = new EmployeesSchedulesViewModel
+                    {
+                        Id = User.Id,
+                        UserId = User.UserId,
+                        EmployeeFullName = $"{User.User.FirstName} {User.User.LastName}",
+                        StartDate = User.StartDate,
+                        EndDate = User.EndDate
+                    };
+
+                    Employees.Add(Employee);
+                }
             }
 
             return Employees;
