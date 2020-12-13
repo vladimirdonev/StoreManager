@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using StoreManager.Services.Schudele;
 using StoreManager.ViewModels.Schudele;
@@ -8,6 +9,8 @@ using System.Linq;
 
 namespace StoreManager.Controllers
 {
+    [Authorize]
+    [Authorize(Roles = "Owner")]
     public class SchedulesController : Controller   
     {
         private readonly IScheduleService service;

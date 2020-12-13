@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -12,6 +13,8 @@ using System.Threading.Tasks;
 
 namespace StoreManager.Controllers
 {
+    [Authorize]
+    [Authorize(Roles = "Admin,Owner")]
     public class AdministrationController : Controller
     {
         private readonly RoleManager<IdentityRole> roleManager;
@@ -110,6 +113,11 @@ namespace StoreManager.Controllers
         public async Task<IActionResult> EditRole(EditRoleViewModel model)
         {
             var role = await roleManager.FindByIdAsync(model.Id);
+
+            if (!ModelState.IsValid)
+            {
+                return this.View(model);
+            }
 
             role.Name = model.Name;
 

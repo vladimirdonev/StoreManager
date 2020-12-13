@@ -1,10 +1,13 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using StoreManager.Services.Salaries;
 using StoreManager.Services.Stores;
 using StoreManager.ViewModels.Salaries;
 
 namespace StoreManager.Controllers
 {
+    [Authorize]
+    [Authorize(Roles = "Owner")]
     public class SalariesController : Controller
     {
         private readonly IStoresService storesService;
@@ -36,7 +39,14 @@ namespace StoreManager.Controllers
         [HttpPost]
         public IActionResult SetSalary(EmployeeSalaryInputModel model)
         {
+
+            if (!ModelState.IsValid)
+            {
+                return this.View(model);
+            }
+
             var StoreId = this.service.CreateSalary(model);
+
             return this.RedirectToAction("Edit", new { id = StoreId });
         }
 
@@ -51,6 +61,12 @@ namespace StoreManager.Controllers
         [HttpPost]
         public IActionResult EditSalary(EmployeeSalaryInputModel model)
         {
+
+            if (!ModelState.IsValid)
+            {
+                return this.View(model);
+            }
+
            var StoreId = this.service.EditSalary(model);
 
             return this.RedirectToAction("Edit", new { id = StoreId });

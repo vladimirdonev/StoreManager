@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using StoreManager.Models;
 using StoreManager.Services.Stores;
 using StoreManager.Services.Users;
@@ -9,6 +10,8 @@ using System.Threading.Tasks;
 
 namespace StoreManager.Controllers
 {
+    [Authorize]
+    [Authorize(Roles = "Owner")]
     public class StoreController : Controller
     {
         private readonly IStoresService service;
@@ -61,6 +64,11 @@ namespace StoreManager.Controllers
         public IActionResult EditStore(EditStoreViewModel model)
         {
             var Store = this.service.FindById(model.Id);
+
+            if (!ModelState.IsValid)
+            {
+                return this.View(model);
+            }
 
             this.service.EditStore(model);
 

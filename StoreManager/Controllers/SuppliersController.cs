@@ -1,9 +1,12 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using StoreManager.Services.Suppliers;
 using StoreManager.ViewModels.Suppliers;
 
 namespace StoreManager.Controllers
 {
+    [Authorize]
+    [Authorize(Roles = "Owner,Employee")]
     public class SuppliersController : Controller
     {
         private ISuppliersService suppliers;
@@ -28,6 +31,10 @@ namespace StoreManager.Controllers
         [HttpPost]
         public IActionResult Edit(SupplierEditViewModel supplier)
         {
+            if (!ModelState.IsValid)
+            {
+                return this.View(supplier);
+            }
             this.suppliers.Edit(supplier);
             return this.Redirect("/Suppliers/All");
         }
@@ -46,6 +53,12 @@ namespace StoreManager.Controllers
         [HttpPost]
         public IActionResult Create(SupplierViewModel supplier)
         {
+
+            if (!ModelState.IsValid)
+            {
+                return this.View(supplier);
+            }
+
             this.suppliers.CreateSupplier(supplier);
             return this.Redirect("/Suppliers/All");
         }

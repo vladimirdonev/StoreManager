@@ -11,7 +11,7 @@ namespace StoreManager.ViewModels.Salaries
         public string UserId { get; set; }
 
         [Required]
-        [Range(typeof(decimal),"0","1000000")]
+        [Range(typeof(decimal),"325","1000000")]
         public decimal Salary { get; set; }
     }
 }

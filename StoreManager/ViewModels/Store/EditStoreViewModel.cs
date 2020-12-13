@@ -12,10 +12,11 @@ namespace StoreManager.ViewModels.Store
         {
             this.Users = new List<string>();
         }
-
+        [Required]
         public int Id { get; set; }
 
         [Required]
+        [MinLength(5)]
         public string Name { get; set; }
 
         public ICollection<string> Users { get; set; }

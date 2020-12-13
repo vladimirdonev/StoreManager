@@ -1,9 +1,12 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using StoreManager.ViewModels.Products;
 using StoreManager.Services.Products;
+using Microsoft.AspNetCore.Authorization;
 
 namespace StoreManager.Controllers
 {
+    [Authorize]
+    [Authorize(Roles = "Owner,Employee")]
     public class ProductsController : Controller
     {
         private IProductsService productsServise;
