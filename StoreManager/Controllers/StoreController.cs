@@ -32,7 +32,7 @@ namespace StoreManager.Controllers
         [HttpPost]
         public IActionResult CreateStore(StoreInputModel model)
         {
-            if (!ModelState.IsValid)
+            if (!this.ModelState.IsValid)
             {
                 return this.Redirect("/Store/CreateStore");
             }
@@ -65,7 +65,7 @@ namespace StoreManager.Controllers
         {
             var Store = this.service.FindById(model.Id);
 
-            if (!ModelState.IsValid)
+            if (!this.ModelState.IsValid)
             {
                 return this.View(model);
             }

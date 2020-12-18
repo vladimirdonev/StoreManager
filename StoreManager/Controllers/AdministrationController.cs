@@ -38,7 +38,7 @@ namespace StoreManager.Controllers
         [HttpPost]
         public async  Task<IActionResult> CreateRoleAsync(RoleInputModel model)
         {
-            if (ModelState.IsValid)
+            if (this.ModelState.IsValid)
             {
                 IdentityRole role = new IdentityRole
                 {
@@ -114,7 +114,7 @@ namespace StoreManager.Controllers
         {
             var role = await roleManager.FindByIdAsync(model.Id);
 
-            if (!ModelState.IsValid)
+            if (!this.ModelState.IsValid)
             {
                 return this.View(model);
             }

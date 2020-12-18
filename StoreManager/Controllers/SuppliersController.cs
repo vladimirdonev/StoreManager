@@ -31,7 +31,7 @@ namespace StoreManager.Controllers
         [HttpPost]
         public IActionResult Edit(SupplierEditViewModel supplier)
         {
-            if (!ModelState.IsValid)
+            if (!this.ModelState.IsValid)
             {
                 return this.View(supplier);
             }
@@ -54,7 +54,7 @@ namespace StoreManager.Controllers
         public IActionResult Create(SupplierViewModel supplier)
         {
 
-            if (!ModelState.IsValid)
+            if (!this.ModelState.IsValid)
             {
                 return this.View(supplier);
             }

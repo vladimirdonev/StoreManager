@@ -40,7 +40,7 @@ namespace StoreManager.Controllers
         public IActionResult SetSalary(EmployeeSalaryInputModel model)
         {
 
-            if (!ModelState.IsValid)
+            if (!this.ModelState.IsValid)
             {
                 return this.View(model);
             }
@@ -62,7 +62,7 @@ namespace StoreManager.Controllers
         public IActionResult EditSalary(EmployeeSalaryInputModel model)
         {
 
-            if (!ModelState.IsValid)
+            if (!this.ModelState.IsValid)
             {
                 return this.View(model);
             }

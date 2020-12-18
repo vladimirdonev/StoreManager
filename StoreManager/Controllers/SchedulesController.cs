@@ -41,7 +41,7 @@ namespace StoreManager.Controllers
         {
             this.ViewBag.StoreId = Id;
             var UserId = UsersTemplate.Split(", ");
-            if (!ModelState.IsValid)
+            if (!this.ModelState.IsValid)
             {
                 
             }
@@ -90,7 +90,7 @@ namespace StoreManager.Controllers
         public IActionResult Edit(EditScheduleViewModel model, int StoreId)
         {
             this.ViewBag.StoreId = StoreId;
-            if (!ModelState.IsValid)
+            if (!this.ModelState.IsValid)
             {
             }
             else if (model.StartDate < DateTime.Today)

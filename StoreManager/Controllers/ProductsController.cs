@@ -25,6 +25,10 @@ namespace StoreManager.Controllers
         [HttpPost]
         public IActionResult AddProduct(CreateProductViewModel createProduct)
         {
+            if (!this.ModelState.IsValid)
+            {
+                return this.View(createProduct);
+            }
             this.productsServise.CreateProduct(createProduct);
             return this.Redirect("/Products/All");
         }
@@ -45,7 +49,10 @@ namespace StoreManager.Controllers
         [HttpPost]
         public IActionResult EditProduct(EditProductViewModel product)
         {
-
+            if (!this.ModelState.IsValid)
+            {
+                return this.View(product);
+            }
             this.productsServise.Edit(product);
             return this.Redirect("/Products/All");
             
