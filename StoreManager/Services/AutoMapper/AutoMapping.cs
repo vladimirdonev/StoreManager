@@ -1,12 +1,11 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Identity;
-using StoreManager.Models;
-using StoreManager.ViewModels.Store;
+using StoreManager.DAL.Entities;
 using StoreManager.ViewModels.Products;
+using StoreManager.ViewModels.Salaries;
+using StoreManager.ViewModels.Store;
 using StoreManager.ViewModels.Suppliers;
 using StoreManager.ViewModels.UserRoles;
-using StoreManager.ViewModels.Salaries;
-using System.Linq;
 
 namespace StoreManager.Services.AutoMapper
 {
@@ -14,8 +13,8 @@ namespace StoreManager.Services.AutoMapper
     {
         public AutoMapping()
         {
-            CreateMap<CreateProductViewModel, Product>();
-            CreateMap<Product, ProductViewModel>();
+            CreateMap<CreateProductViewModel, Product>().ReverseMap();
+            CreateMap<Product, ProductViewModel>().ReverseMap();
             CreateMap<Product, AllProductsViewModel>();
             CreateMap<EditProductViewModel, Product>();
             CreateMap<ProductViewModel, Product>();

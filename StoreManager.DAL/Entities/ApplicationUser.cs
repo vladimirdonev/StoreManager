@@ -1,8 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace StoreManager.Models
+namespace StoreManager.DAL.Entities
 {
     public class ApplicationUser : IdentityUser
     {

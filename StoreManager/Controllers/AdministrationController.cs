@@ -2,10 +2,7 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using StoreManager.Data;
 using StoreManager.Models;
-using StoreManager.Services.Users;
 using StoreManager.ViewModels.UserRoles;
 using System.Collections.Generic;
 using System.Linq;

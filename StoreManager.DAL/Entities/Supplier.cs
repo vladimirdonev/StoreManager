@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
 
-namespace StoreManager.Models
+namespace StoreManager.DAL.Entities
 {
     public class Supplier
     {

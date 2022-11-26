@@ -1,18 +1,19 @@
 ﻿using AutoMapper;
-using StoreManager.Data;
-using StoreManager.ViewModels.Salaries;
-using StoreManager.Models;
-using System.Linq;
 using Microsoft.EntityFrameworkCore;
+using StoreManager.DAL;
+using StoreManager.DAL.Entities;
+using StoreManager.Models;
+using StoreManager.ViewModels.Salaries;
+using System.Linq;
 
 namespace StoreManager.Services.Salaries
 {
     public class SalariesService : ISalariesService
     {
-        private readonly ApplicationDbContext db;
+        private readonly StoreManagerDbContext db;
         private readonly IMapper mapper;
 
-        public SalariesService(ApplicationDbContext db, IMapper mapper)
+        public SalariesService(StoreManagerDbContext db, IMapper mapper)
         {
             this.db = db;
             this.mapper = mapper;

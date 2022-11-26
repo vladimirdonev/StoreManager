@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace StoreManager.Models
+namespace StoreManager.DAL.Entities
 {
     public class Product
     {

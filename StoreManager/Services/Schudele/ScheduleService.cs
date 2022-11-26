@@ -1,22 +1,20 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using StoreManager.Data;
-using StoreManager.Models;
+using StoreManager.DAL;
+using StoreManager.DAL.Entities;
 using StoreManager.Services.Stores;
 using StoreManager.ViewModels.Schudele;
-using StoreManager.ViewModels.Store;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace StoreManager.Services.Schudele
 {
     public class ScheduleService : IScheduleService
     {
-        private readonly ApplicationDbContext db;
+        private readonly StoreManagerDbContext db;
         private readonly IStoresService service;
 
-        public ScheduleService(ApplicationDbContext db, IStoresService service)
+        public ScheduleService(StoreManagerDbContext db, IStoresService service)
         {
             this.db = db;
             this.service = service;
@@ -25,7 +23,6 @@ namespace StoreManager.Services.Schudele
         public ICollection<EmployeesSchedulesViewModel> AllEmployees(int Id)
         {
             var Employees = new List<EmployeesSchedulesViewModel>();
-
 
             var EmployeesInStore = this.db.EmployeesSchedules.ToList();
 

@@ -1,9 +1,8 @@
 ﻿using AutoMapper;
 using Microsoft.EntityFrameworkCore;
-using StoreManager.Data;
-using StoreManager.Models;
+using StoreManager.DAL;
+using StoreManager.DAL.Entities;
 using StoreManager.ViewModels.Suppliers;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -11,10 +10,10 @@ namespace StoreManager.Services.Suppliers
 {
     public class SuppliersService : ISuppliersService
     {
-        private ApplicationDbContext db;
+        private StoreManagerDbContext db;
         private IMapper mapper;
 
-        public SuppliersService(ApplicationDbContext db,IMapper mapper)
+        public SuppliersService(StoreManagerDbContext db,IMapper mapper)
         {
             this.db = db;
             this.mapper = mapper;

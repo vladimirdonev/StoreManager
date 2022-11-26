@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace StoreManager.Services.Users
 {
-    public class UserManagerExtend<TUsers> : UserManager<ApplicationUser> where TUsers : ApplicationUser
+    public class UserManagerExtension<TUsers> : UserManager<ApplicationUser> where TUsers : ApplicationUser
     {
-        public UserManagerExtend(IUserStore<ApplicationUser> store, IOptions<IdentityOptions> optionsAccessor, 
+        public UserManagerExtension(IUserStore<ApplicationUser> store, IOptions<IdentityOptions> optionsAccessor, 
             IPasswordHasher<ApplicationUser> passwordHasher, IEnumerable<IUserValidator<ApplicationUser>> userValidators, 
             IEnumerable<IPasswordValidator<ApplicationUser>> passwordValidators, ILookupNormalizer keyNormalizer, 
             IdentityErrorDescriber errors, IServiceProvider services, ILogger<UserManager<ApplicationUser>> logger) : 

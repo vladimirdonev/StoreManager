@@ -4,20 +4,21 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace StoreManager.Models
+namespace StoreManager.DAL.Entities
 {
-    public class EmployeeSchedule
+    public class UsersStore
     {
-        public int Id { get; set; }
+
+
 
         [ForeignKey("AspNetUsers")]
         public string UserId { get; set; }
 
         public virtual ApplicationUser User { get; set; }
 
-        public string EmployeeFullName { get; set; }
+        [ForeignKey("Store")]
+        public int StoreId { get; set; }
 
-        public DateTime StartDate { get; set; }
-        public DateTime EndDate { get; set; }
+        public virtual Store Store { get; set; }
     }
 }

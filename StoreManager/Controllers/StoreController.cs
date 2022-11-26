@@ -15,9 +15,9 @@ namespace StoreManager.Controllers
     public class StoreController : Controller
     {
         private readonly IStoresService service;
-        private readonly UserManagerExtend<ApplicationUser> userManager;
+        private readonly UserManagerExtension<ApplicationUser> userManager;
 
-        public StoreController(IStoresService service, UserManagerExtend<ApplicationUser> userManager)
+        public StoreController(IStoresService service, UserManagerExtension<ApplicationUser> userManager)
         {
             this.service = service;
             this.userManager = userManager;

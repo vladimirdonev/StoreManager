@@ -1,11 +1,10 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using StoreManager.Data;
+using StoreManager.DAL;
 using StoreManager.Models;
 using StoreManager.ViewModels.Salaries;
 using StoreManager.ViewModels.Store;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -14,11 +13,11 @@ namespace StoreManager.Services.Stores
 {
     public class StoresService : IStoresService
     {
-        private readonly ApplicationDbContext db;
+        private readonly StoreManagerDbContext db;
         private readonly IMapper mapper;
         private readonly UserManager<ApplicationUser> userManager;
 
-        public StoresService(ApplicationDbContext db, IMapper mapper, UserManager<ApplicationUser> userManager)
+        public StoresService(StoreManagerDbContext db, IMapper mapper, UserManager<ApplicationUser> userManager)
         {
             this.db = db;
             this.mapper = mapper;

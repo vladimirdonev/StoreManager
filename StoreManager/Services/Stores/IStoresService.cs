@@ -1,9 +1,7 @@
-﻿using StoreManager.Models;
+﻿using StoreManager.DAL.Entities;
 using StoreManager.ViewModels.Salaries;
 using StoreManager.ViewModels.Store;
-using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace StoreManager.Services.Stores

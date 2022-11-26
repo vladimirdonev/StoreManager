@@ -1,21 +1,19 @@
 ﻿using AutoMapper;
 using Microsoft.EntityFrameworkCore;
-using StoreManager.Data;
-using StoreManager.Models;
+using StoreManager.DAL;
+using StoreManager.DAL.Entities;
 using StoreManager.ViewModels.Products;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace StoreManager.Services.Products
 {
     public class ProductsService : IProductsService
     {
-        private ApplicationDbContext db;
+        private StoreManagerDbContext db;
         private IMapper mapper;
 
-        public ProductsService(ApplicationDbContext db, IMapper mapper)
+        public ProductsService(StoreManagerDbContext db, IMapper mapper)
         {
             this.db = db;
             this.mapper = mapper;

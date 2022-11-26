@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace StoreManager.Models
-{
+namespace StoreManager.DAL.Entities 
+{ 
     public class Store
     {
 

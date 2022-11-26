@@ -14,12 +14,12 @@ namespace StoreManager.ViewModels.Users
 
 
 
-        private readonly UserManagerExtend<ApplicationUser> _userManager;
+        private readonly UserManagerExtension<ApplicationUser> _userManager;
         private readonly SignInManager<ApplicationUser> _signInManager;
 
         
         public ProfileViewModel(
-            UserManagerExtend<ApplicationUser> userManager,
+            UserManagerExtension<ApplicationUser> userManager,
             SignInManager<ApplicationUser> signInManager)
         {
             _userManager = userManager;
