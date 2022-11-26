@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using StoreManager.DAL;
-using StoreManager.Models;
+using StoreManager.DAL.Entities;
 using StoreManager.ViewModels.Salaries;
 using StoreManager.ViewModels.Store;
 using System.Collections.Generic;

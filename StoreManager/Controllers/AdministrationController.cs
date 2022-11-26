@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using StoreManager.DAL.Entities;
 using StoreManager.Models;
 using StoreManager.ViewModels.UserRoles;
 using System.Collections.Generic;

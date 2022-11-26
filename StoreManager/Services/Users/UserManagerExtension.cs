@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
-using StoreManager.Models;
+using StoreManager.DAL.Entities;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;

@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using StoreManager.Models;
+using StoreManager.DAL.Entities;
 using StoreManager.Services.Stores;
 using StoreManager.Services.Users;
 using StoreManager.ViewModels.Store;
