@@ -1,0 +1,7 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs/StoreManager
+
+# End of https://www.toptal.com/developers/gitignore/api/dotnetcore
