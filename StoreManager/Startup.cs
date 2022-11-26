@@ -7,7 +7,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using StoreManager.DAL;
-using StoreManager.Models;
+using StoreManager.DAL.Entities;
 using StoreManager.Services.Products;
 using StoreManager.Services.Salaries;
 using StoreManager.Services.Schudele;
